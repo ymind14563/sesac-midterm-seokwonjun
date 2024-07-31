@@ -3,6 +3,27 @@ document.addEventListener('DOMContentLoaded', () => {
 
     const resultBox = document.getElementById(`todo-list`);
 
+    // function getTodos() {
+    //     for (i = 1; i < 11; i++) {
+    //     fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+    //     .then(res => res.json())
+    //     .then(json => {          
+
+    //         const text = document.createElement('li');
+    //         const textContent = 
+    //         `<li>
+    //         <input type="checkbox">${json.title}</input>
+    //         <button onclick="deleteButton()">X</button>
+    //         </li>
+    //         `
+
+    //     })
+
+    //         text.appendChild(textContent);
+        
+    //     }
+    // }
+
     function getTodos() {
         for (i = 1; i < 11; i++){
         fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
@@ -15,7 +36,7 @@ document.addEventListener('DOMContentLoaded', () => {
             <button onclick="deleteTodo()">X</button>
             </li>
             `
-
+            
             })
         }
     }

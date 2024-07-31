@@ -19,11 +19,29 @@ section {
 
 @media screen and (max-width: 540px){
 
+    body, h1 {
+        grid-column: 1;
+    }
+
+    #todo-list{
+        grid-column: 1;
+    }
+
 }
 @media screen and (min-width: 540px) and (max-width: 960px){
+
+
+    #todo-list{
+        grid-column: 2;
+    }
 
 }
 
 @media screen and (min-width: 960px){
-        
+
+    #todo-list{
+        grid-column: 4;
+    }
+
+    
 }
