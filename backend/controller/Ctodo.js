@@ -1,9 +1,8 @@
-const { Todo } = require(`../models/`);
+const { Todo } = require(`../models`);
 
 // todo 작성
 exports.postTodo = async (req, res) => {
     try{
-        console.log(req.body);
         const { title, done } = req.body;
 
         const newTodo = await Todo.create({ 
@@ -21,13 +20,17 @@ exports.postTodo = async (req, res) => {
 // todo 한개 조회
 exports.getTodo = async (req, res) => {
     try {
-        const { id } = req.params;
 
         
-        const todo = await todo.findOne({
+        const { id } = req.params;
+        
+        const todo = await Todo.findOne({
             where: { id },
         });
-        
+
+        // todo 없는 경우
+        if (!todo) return res.status(404).json({ message: `Todo not found`})
+
         res.json(todo);
     } catch (error) {
         console.error(error);
@@ -53,6 +56,7 @@ exports.patchTodo = async (req, res) => {
         const { id } = req.params;
         const { title, done } = req.body;
 
+        console.log(`req>>>>>>>>>>>`,req)
         // todo 있는지 확인
         const todo = await Todo.findOne({
             where: { id }
@@ -68,7 +72,12 @@ exports.patchTodo = async (req, res) => {
             { where: { id } }
         );
 
-        res.json(updatedTodo);
+        todo.title = title;
+        todo.done = done;
+
+        todo.save();
+
+        return res.json(todo);
         
     } catch (error) {
         console.error(error);

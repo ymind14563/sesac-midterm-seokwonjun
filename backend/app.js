@@ -9,7 +9,7 @@ app.set(`views`, `./views`);
 app.use(express.urlencoded({ extended : true }));
 app.use(express.json());
 
-app.use(`/todo`, todoRouter);
+app.use(`/todos`, todoRouter);
 
 
 sequelize

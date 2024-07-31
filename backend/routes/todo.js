@@ -3,13 +3,13 @@ const router = express.Router();
 const controller = require(`../controller/Ctodo`);
 
 // todo 작성
-router.post(`/todo`, controller.postTodo);
+router.post(`/`, controller.postTodo);
 
 // todo 한개 조회
 router.get(`/:id`, controller.getTodo);
 
 // todo 전체 조회
-router.get(`/todos`, controller.getTodos);
+router.get(`/`, controller.getTodos);
 
 // todo 수정
 router.patch(`/:id`, controller.patchTodo);
