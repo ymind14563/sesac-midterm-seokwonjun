@@ -4,22 +4,26 @@ document.addEventListener('DOMContentLoaded', () => {
     const resultBox = document.getElementById(`todo-list`);
 
     function getTodos() {
-        fetch('https://jsonplaceholder.typicode.com/todos')
-        .then(res => res.json().slice(0, 10))
-        .then(json => {
-            for (i = 0; i <= 10; i++){
+        for (i = 1; i < 11; i++){
+        fetch(`https://jsonplaceholder.typicode.com/todos/${i}`)
+        .then(res => res.json())
+        .then(json => {          
 
             resultBox.innerHTML = 
             `<li>
-            <input type="checkbox">${json[i].title}</input>
+            <input type="checkbox">${json.title}</input>
             <button onclick="deleteTodo()">X</button>
             </li>
             `
 
-            }
-        })
+            })
+        }
     }
 
+    const input = document.querySelector('#todo')
+    const addButton = document.querySelector('#add-button')
+    const todoList = document.querySelector('#todo-list')
+    const alert = document.querySelector('li')
 
     const addTodo = () => {
         if (input.value !== '') {
