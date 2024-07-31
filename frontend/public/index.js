@@ -30,10 +30,10 @@ document.addEventListener('DOMContentLoaded', () => {
         .then(res => res.json())
         .then(json => {          
 
-            resultBox.innerHTML = 
+            resultBox.innerHTML += 
             `<li>
             <input type="checkbox">${json.title}</input>
-            <button onclick="deleteTodo()">X</button>
+            <button id="deleteButton" onclick="deleteTodo()">X</button>
             </li>
             `
             
@@ -45,6 +45,14 @@ document.addEventListener('DOMContentLoaded', () => {
     const addButton = document.querySelector('#add-button')
     const todoList = document.querySelector('#todo-list')
     const alert = document.querySelector('li')
+
+    const deleteTodo = () => {
+        deleteButton.addEventListener('click', (event) => {
+            todoList.removeChild(event.currentTarget.parentNode)
+        })
+            input.value =''
+            alert.textContent = ''
+    }
 
     const addTodo = () => {
         if (input.value !== '') {
