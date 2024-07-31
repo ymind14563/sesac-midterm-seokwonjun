@@ -1,0 +1,19 @@
+header {
+    background-color: greenyellow;
+    font-size: 100px;
+    display: flex;
+    justify-content: center;
+}
+
+img {
+    width: 30%;
+}
+
+section {
+    background-color: rgb(200, 227, 160);
+}
+#title, #input {
+    display: flex;
+    justify-content: center;
+}
+

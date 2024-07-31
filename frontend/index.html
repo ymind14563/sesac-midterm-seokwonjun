@@ -9,16 +9,20 @@
 </head>
 <body>
     <header>
-        <img src="public/codingon.png" alt="header-img">
-        <h1>Todo List</h1>
+        <img src="public/codingon.png" alt="header-img">Todo List</header>
+        <h1></h1>
     </header>
-    <form name="todos" action="/gettodos">
-        <div>
-            <input type="text">
-            <button type="submit"></button>
+    <section>
+        <div id="title">
+            <h1>할 일 목록</h1>
         </div>
-        <div class="result">
+        <div id="input">
+            <input id="todo">
+            <button id="add-button">작성</button>
         </div>
-    </form>
+
+
+        <div id="todo-list"></div>
+    </section>
 </body>
 </html>
